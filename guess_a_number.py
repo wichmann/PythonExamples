@@ -15,15 +15,15 @@ print("Zahlenraten")
 
 # Zufallszahl berechnen
 random.seed()
-zielzahl = random.randint(1,100)
+correct_answer = random.randint(1,100)
 
 # Spieler raten lassen und Hinweis geben
-eingabe = 0
-while zielzahl is not eingabe:
-    eingabe = int(input("Zahl eingeben: "))
-    if eingabe > zielzahl:
+player_input = 0
+while player_input is not correct_answer:
+    player_input = int(input("Zahl eingeben: "))
+    if player_input > correct_answer:
         print("Zahl zu groß!")
-    elif eingabe < zielzahl:
+    elif player_input < correct_answer:
         print("Zahl zu klein!")
     else:
         print("Sie haben gewonnen!")
