@@ -20,11 +20,13 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((TCP_IP, TCP_PORT))
 s.listen(1)
 
-conn, addr = s.accept()
-print('Connection address: {}'.format(addr))
 while True:
-    data = conn.recv(BUFFER_SIZE)
-    if data:
+    conn, addr = s.accept()
+    print('Connection address: {}'.format(addr))
+    while True:
+        data = conn.recv(BUFFER_SIZE)
+        if not data:
+            break
         print("received data: {}".format(data))
-        conn.send(data)  # echo
+        conn.send(data)
 conn.close()
