@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Herunterladen aller Bilddateien von einer HTML-Seite in ein Verzeichnis.
 """

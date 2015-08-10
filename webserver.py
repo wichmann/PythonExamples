@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 """
 Einfacher Webserver, der den Pfad zur gesuchten Ressource als Information
