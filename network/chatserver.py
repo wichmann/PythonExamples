@@ -32,17 +32,29 @@ chatwindow = """
              </body>
              <script type="text/javascript">
              var startmessage = "Neue Nachricht...";
-             $("#newmessage").value = startmessage;
+             $("#newmessage").val(startmessage);
              $("#newmessage").bind("click", function() {
-                 if ($("#newmessage").value == startmessage) {
-                     $("#newmessage").value = "";
+                 if ($("#newmessage").val() == startmessage) {
+                     $("#newmessage").val("");
                  }
              }, false);
              
-             $("#sentbutton").bind("click", function() {
+             function sendNewMessage() {
+                 // send new message to server
                  var message = $("#newmessage").val();
                  $.post("chatserver/sentmessage", {message: message});
-             }, false);
+                 // clear message text field
+                 $("#newmessage").val("");
+             }
+             
+             $("#newmessage").keypress(function( event ) {
+                 if(event.which == 13) {
+                     event.preventDefault();
+                     sendNewMessage();
+                 }
+             });
+             
+             $("#sentbutton").bind("click", function() { sendNewMessage(); }, false);
              
              function compileMessages(data) {
                  var allmessages = "ChatServer\\n";
