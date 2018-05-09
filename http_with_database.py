@@ -83,7 +83,7 @@ def add():
     content = """<form action="/add" method="POST">
                    <p>Name: <input type="text" name="name" /></p>
                    <p>Ort: <input type="text" name="place" /></p>
-                   <p>Datum: <input type="datetime-local" name="date" /></p>
+                   <p>Datum (z.B. 2018-02-24): <input type="date" name="date" /></p>
                    <input type="submit" value="Absenden" />
                  </form>"""
     if request.method == 'POST':
@@ -91,7 +91,7 @@ def add():
         name = request.form.get('name')
         place = request.form.get('place')
         try:
-            date = datetime.strptime(request.form.get('date'), '%d.%m.%Y')
+            date = datetime.strptime(request.form.get('date'), '%Y-%m-%d')
         except ValueError:
             date = datetime.now()
         cursor = conn.cursor()
