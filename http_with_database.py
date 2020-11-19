@@ -4,6 +4,7 @@ Einfache Veranstaltungsverwaltung mit eigenem Web-Server und SQLite-Datenbank.
 """
 
 import sqlite3
+import webbrowser
 from datetime import datetime
 
 from flask import Flask
@@ -113,4 +114,5 @@ def clear():
 
 
 if __name__ == '__main__':
+    webbrowser.open_new_tab('http://localhost:5000')
     app.run(host= '0.0.0.0', debug=True)
