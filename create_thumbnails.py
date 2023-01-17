@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 """
 Thumbnail für eine Datei erzeugen (benötigt Python Imaging Library)
